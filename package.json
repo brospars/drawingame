@@ -1,0 +1,19 @@
+{
+  "name": "drawingame",
+  "version": "0.1.0",
+  "description": "Multiplayer pictionary-like game",
+  "main": "app.js",
+  "scripts": {
+  },
+  "keywords": [
+    "drawing",
+    "game",
+    "pictionary",
+    "multiplayer"
+  ],
+  "author": "Benoit Rospars",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.13.4"
+  }
+}

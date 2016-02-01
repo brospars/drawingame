@@ -1,0 +1,31 @@
+.home-wrapper{
+    position: absolute;
+    margin: 0 auto;
+    top:40%;left:50%;
+    text-align: center;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+.left-panel{
+    position: absolute;
+    top:0;left:0;
+    height:100%;
+    width:100%;
+    padding-right: 30rem;
+    background: $lightgrey url("../img/bg.png") repeat scroll 0% 0%;
+    overflow: hidden;
+}
+
+.canvas-wrapper{
+    position: relative;
+    top:2.5%;left:2.5%;
+    width:95%;
+    height:95%;
+}
+
+.canvas-wrapper canvas{
+    position: absolute;
+    max-width:100%;
+    max-height:100%;
+}

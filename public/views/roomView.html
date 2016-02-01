@@ -1,0 +1,19 @@
+<div class="view-wrapper">
+    <div class="left-panel">
+        <div class="canvas-wrapper">
+            <canvas width="1920" height="1080" style="background:white;"></canvas>
+        </div>
+    </div>
+    <div class="chat-room">
+        <ul class="chat-list" scroll-glue>
+            <li class="chat-message" ng-repeat="message in messages">
+                <span class="pseudo">{{message.pseudo}} : </span>{{message.text}}
+            </li>
+        </ul>
+
+        <form class="chat-form" ng-submit="sendMessage()">
+            <input type="text" ng-model="input"/>
+            <button class="filled">Envoyer</button>
+        </form>
+    </div>
+</div>

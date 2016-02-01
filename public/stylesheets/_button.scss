@@ -1,0 +1,41 @@
+.button,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit']{
+	display: inline-block;
+    padding: 0.5rem 2em;
+    border-radius: 2px;
+    border: 1px solid $mediumgrey;
+    color: $darkgrey;
+    background: $white;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    
+    &.filled{
+        color:$white;
+        background:$filled-color;
+        border-color:$filled-color;
+    }
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='tel']{
+	display: inline-block;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 2px;
+    border: 1px solid $mediumgrey;
+    color: $darkgrey;
+    cursor: pointer;
+    font:inherit;
+
+	&:hover,
+	&:focus{
+		border-color: $darkgrey;
+    }      
+}
+

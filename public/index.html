@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Drawingame | BR</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div ng-view></div>
+
+    <!-- Angular -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/angularjs-scroll-glue/src/scrollglue.js"></script>
+    
+
+    <!-- App -->
+    <script src="app.js"></script>
+    <script src="controllers/homeCtrl.js"></script>
+    <script src="controllers/roomCtrl.js"></script>
+
+    <!-- Socket Io -->
+    <script src="http://localhost:1337/socket.io/socket.io.js"></script>
+</body>
+
+</html>

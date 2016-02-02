@@ -7,12 +7,13 @@
     -webkit-transform: translateY(-50%) translateX(-50%);
 }
 
-.left-panel{
+.canvas-panel{
     position: absolute;
     top:0;left:0;
     height:100%;
     width:100%;
     padding-right: 30rem;
+    padding-left: 4rem;
     background: $lightgrey url("../img/bg.png") repeat scroll 0% 0%;
     overflow: hidden;
 }
@@ -29,3 +30,76 @@
     max-width:100%;
     max-height:100%;
 }
+
+.tools-panel{
+    position: fixed;
+    top:0;
+    left:0;
+    width:4rem;
+    height:100%;
+    background: $darkgrey;
+    color:white;
+}
+
+.tools-list{
+    list-style: none;
+}
+
+.tool{
+    position: relative;
+    height:4rem;
+    width:4rem;
+    padding-left: 4rem;
+    line-height: 4rem;
+    white-space: nowrap;
+    background: $darkgrey;
+    text-transform: uppercase;
+    text-align: center;
+    overflow: hidden;
+    cursor:pointer;
+    
+    &:hover{
+        width:20rem;
+    }
+    
+    &.disabled{
+        width:4rem;
+        opacity: 0.5;
+        cursor: default;
+    }
+    
+    &:nth-child(1n){background:$gradient1;}
+    &:nth-child(2n){background:$gradient2;}
+    &:nth-child(3n){background:$gradient3;}
+    &:nth-child(4n){background:$gradient4;}
+    &:nth-child(5n){background:$gradient5;}
+}
+
+.tool i{
+    position: absolute;
+    width:4rem;
+    height: 4rem;
+    top:0;left:0;
+    line-height: 4rem;
+    text-align: center;
+}
+
+.tool.selected i{
+    border-left: 2px solid $orange;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

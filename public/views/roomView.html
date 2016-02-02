@@ -1,8 +1,36 @@
 <div class="view-wrapper">
-    <div class="left-panel">
+    <div class="canvas-panel">
         <div class="canvas-wrapper">
             <canvas width="1920" height="1080" style="background:white;"></canvas>
         </div>
+    </div>
+    <div class="tools-panel">
+        <ul class="tools-list">
+            <li class="tool">
+                <i class="fa fa-user"></i> {{pseudo}}
+                <div class="tool-options">
+                
+                </div>
+            </li>
+            <li class="tool selected">
+                <i class="fa fa-pencil"></i> Pencil
+                <div class="tool-options">
+                
+                </div>
+            </li>
+            <li class="tool">
+                <i class="fa fa-eraser"></i> Eraser
+                <div class="tool-options">
+                
+                </div>
+            </li>
+            <li class="tool disabled">
+                <i class="fa fa-eyedropper"></i> Color
+                <div class="tool-options">
+                
+                </div>
+            </li>
+        </ul>
     </div>
     <div class="chat-room">
         <ul class="chat-list" scroll-glue>
@@ -12,7 +40,7 @@
         </ul>
 
         <form class="chat-form" ng-submit="sendMessage()">
-            <input type="text" ng-model="input"/>
+            <input type="text" ng-model="input" />
             <button class="filled">Envoyer</button>
         </form>
     </div>

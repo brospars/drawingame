@@ -10,12 +10,12 @@ angular.module('myApp.homeCtrl', ['ngRoute'])
 }])
 
 .controller('HomeCtrl', function ($rootScope, $scope, $http, $location) {
-    
-    $scope.connectAs = function(){
+
+    $scope.connectAs = function () {
         console.log($scope.formData.pseudo);
-        if($scope.formData.pseudo){
+        if ($scope.formData.pseudo) {
             $rootScope.pseudo = $scope.formData.pseudo;
-            $location.path( "/room");
+            $location.path("/room");
         }
     }
 });

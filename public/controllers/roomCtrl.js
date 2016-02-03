@@ -11,6 +11,7 @@ angular.module('myApp.roomCtrl', ['ngRoute'])
     if ($rootScope.pseudo) {
         // SCOPE Var & Functions
         $scope.messages = [];
+        $scope.selectedTool = 'pencil';
 
         $scope.sendMessage = function () {
             if ($scope.input) {
@@ -19,6 +20,24 @@ angular.module('myApp.roomCtrl', ['ngRoute'])
                     "pseudo": $rootScope.pseudo
                 });
                 $scope.input = '';
+            }
+        }
+
+        $scope.changeTool = function(tool) {
+            switch (tool) {
+                case 'pencil':
+                    $scope.selectedColor = 'black';
+                    $scope.selectedTool = 'pencil';
+                    break;
+                case 'eraser':
+                    $scope.selectedColor = 'white';
+                    $scope.selectedTool = 'eraser';
+                    break;
+                case 'reset':
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -33,6 +52,11 @@ angular.module('myApp.roomCtrl', ['ngRoute'])
         var ctxScale = canvas[0].offsetWidth / 1920;
         var ctxX = canvas.parent()[0].offsetLeft;
         var ctxY = canvas.parent()[0].offsetTop;
+        
+        //canvas init
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.lineWidth = 15;
 
         //update scale on resize
         window.onresize = function () {
@@ -51,12 +75,12 @@ angular.module('myApp.roomCtrl', ['ngRoute'])
             prev.x = e.pageX * (1 / ctxScale) - ctxX * (1 / ctxScale);
             prev.y = e.pageY * (1 / ctxScale) - ctxY * (1 / ctxScale);
         });
-        
+
         //Mouse up → stop drawing
         doc.bind('mouseup mouseleave', function () {
             drawing = false;
         });
-        
+
         //Mouse move → draw the line
         doc.on('mousemove', function (e) {
 
@@ -67,12 +91,13 @@ angular.module('myApp.roomCtrl', ['ngRoute'])
                 socket.emit('mousemove', {
                     'x': x,
                     'y': y,
+                    'color' : $scope.selectedColor,
                     'drawing': drawing
                 });
                 lastEmit = Date.now();
 
                 if (drawing) {
-                    drawLine(prev.x, prev.y, x, y);
+                    drawLine(prev.x, prev.y, x, y, $scope.selectedColor);
                     prev.x = x;
                     prev.y = y;
                 }
@@ -80,11 +105,13 @@ angular.module('myApp.roomCtrl', ['ngRoute'])
         });
 
         //Draw a line between 2 coordinates
-        function drawLine(fromx, fromy, tox, toy) {
-            ctx.lineWidth = 5;
+        function drawLine(fromx, fromy, tox, toy, color) {
+            ctx.strokeStyle = color;
+            ctx.beginPath();
             ctx.moveTo(fromx, fromy);
             ctx.lineTo(tox, toy);
             ctx.stroke();
+            ctx.closePath();         
         }
 
 
@@ -110,7 +137,7 @@ angular.module('myApp.roomCtrl', ['ngRoute'])
 
         socket.on('moving', function (data) {
             if (data.drawing) {
-                drawLine(data.prevx, data.prevy, data.x, data.y);
+                drawLine(data.prevx, data.prevy, data.x, data.y, data.color);
             }
         });
     } else {

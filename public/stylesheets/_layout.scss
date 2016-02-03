@@ -29,6 +29,9 @@
     position: absolute;
     max-width:100%;
     max-height:100%;
+    
+    &.pencil{cursor: url(img/pencil.cur);}
+    &.eraser{cursor: url(img/eraser.cur);}
 }
 
 .tools-panel{
@@ -47,7 +50,6 @@
 
 .tool{
     position: relative;
-    height:4rem;
     width:4rem;
     padding-left: 4rem;
     line-height: 4rem;

@@ -8,8 +8,4 @@ Drawingame
 
 ## Live Demos
 
-## How to Play
-coming soon ..
-
 ## Installation
-coming soon .. 
